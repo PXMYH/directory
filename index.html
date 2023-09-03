@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab Redirects</title>
+    <style>
+        /* Style for tabs */
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        /* Style for active tab */
+        .active-tab {
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        /* Ensure only three tabs per row */
+        .tab:nth-child(3n+1) {
+            margin-left: 0;
+        }
+
+        /* Content container */
+        .content-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab-container">
+        <div class="tab" onclick="openLink('https://pxmyh.github.io/show-hn/')">Show HN</div>
+        <div class="tab" onclick="openLink('https://pxmyh.github.io/LuckyWheel/')">Spin the Wheel</div>
+        <div class="tab" onclick="openLink('https://droolingpanda.pythonanywhere.com/')">Dumb Receipts</div>
+        <div class="tab" onclick="openLink('https://www.example3.com')">Next Tab</div>
+    </div>
+    <div class="content-container">
+        <iframe id="content" src="" width="100%" height="400"></iframe>
+    </div>
+
+    <script>
+        function openLink(link) {
+            // Set the iframe source to the selected link
+            document.getElementById('content').src = link;
+
+            // Remove the 'active-tab' class from all tabs
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(tab => tab.classList.remove('active-tab'));
+
+            // Add the 'active-tab' class to the clicked tab
+            event.currentTarget.classList.add('active-tab');
+        }
+
+        // Initialize the first tab as active and load its content
+        openLink('https://pxmyh.github.io/show-hn/');
+    </script>
+</body>
+
+</html>
