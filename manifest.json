@@ -8,7 +8,7 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/yp.png",
+      "src": "yp.png",
       "sizes": "181x181",
       "type": "image/png"
     }
