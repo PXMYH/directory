@@ -1,66 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="manifest" href="manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      href="https://cdn.jsdelivr.net/gh/PXMYH/directory@main/assets/img/yp_180x180.png"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/PXMYH/directory@main/yp%20180x180.png">
-    
     <title>Directory</title>
     <style>
-        /* Style for tabs */
-        .tab-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-        }
+      /* Style for tabs */
+      .tab-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
 
-        .tab {
-            cursor: pointer;
-            padding: 10px 20px;
-            background-color: #f2f2f2;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 5px;
-        }
+      .tab {
+        cursor: pointer;
+        padding: 10px 20px;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 5px;
+      }
 
-        /* Style for active tab */
-        .active-tab {
-            background-color: #fff;
-            border: 1px solid #ccc;
-        }
+      /* Style for active tab */
+      .active-tab {
+        background-color: #fff;
+        border: 1px solid #ccc;
+      }
 
-        /* Ensure only three tabs per row */
-        .tab:nth-child(3n+1) {
-            margin-left: 0;
-        }
+      /* Ensure only three tabs per row */
+      .tab:nth-child(3n + 1) {
+        margin-left: 0;
+      }
 
-        /* Content container */
-        .content-container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
+      /* Content container */
+      .content-container {
+        border: 1px solid #ccc;
+        padding: 20px;
+        border-radius: 5px;
+        margin-top: 10px;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="tab-container">
-        <div class="tab" onclick="openLinkNewWindow('https://pxmyh.github.io/show-hn/')">Show HN</div>
-        <div class="tab" onclick="openLinkNewWindow('https://pxmyh.github.io/LuckyWheel/')">Spin the Wheel</div>
-        <div class="tab" onclick="openLinkNewWindow('https://droolingpanda.pythonanywhere.com/')">Dumb Receipts</div>
-        <div class="tab" onclick="openLinkNewWindow('https://www.example3.com')">Next Tab</div>
+      <div
+        class="tab"
+        onclick="openLinkNewWindow('https://pxmyh.github.io/show-hn/')"
+      >
+        Show HN
+      </div>
+      <div
+        class="tab"
+        onclick="openLinkNewWindow('https://pxmyh.github.io/LuckyWheel/')"
+      >
+        Spin the Wheel
+      </div>
+      <div
+        class="tab"
+        onclick="openLinkNewWindow('https://droolingpanda.pythonanywhere.com/')"
+      >
+        Dumb Receipts
+      </div>
+      <div class="tab" onclick="openLinkNewWindow('https://www.example3.com')">
+        Next Tab
+      </div>
     </div>
 
     <script>
-        function openLinkNewWindow(link) {
-            // Open the link in a new window/tab
-            window.open(link, '_blank');
-        }
+      function openLinkNewWindow(link) {
+        // Open the link in a new window/tab
+        window.open(link, '_blank');
+      }
     </script>
-</body>
-
+  </body>
 </html>
