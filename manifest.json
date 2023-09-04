@@ -2,7 +2,7 @@
   "name": "Directory",
   "short_name": "Dir",
   "description": "Dirrectory of the interesting stuff",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
