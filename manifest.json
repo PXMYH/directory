@@ -1,7 +1,7 @@
 {
   "name": "Directory",
-  "short_name": "Dir",
-  "description": "Dirrectory of the interesting stuff",
+  "short_name": "Directory",
+  "description": "Directory of the interesting stuff",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#ffffff",
