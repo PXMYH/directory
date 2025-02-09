@@ -1,0 +1,40 @@
+{
+  "buttons": [
+    {
+      "title": "No BS News",
+      "url": "https://pxmyh.github.io/noBS/"
+    },
+    {
+      "title": "PG's Essays",
+      "url": "https://www.paulgraham.com/articles.html"
+    },
+    {
+      "title": "Show HN",
+      "url": "https://pxmyh.github.io/show-hn/"
+    },
+    {
+      "title": "Green Card",
+      "url": "https://pxmyh.github.io/gc-scraper/"
+    },
+    {
+      "title": "Dumb Receipts",
+      "url": "https://droolingpanda.pythonanywhere.com/"
+    },
+    {
+      "title": "BttB",
+      "url": "https://bttb.io/"
+    },
+    {
+      "title": "Norbert's Gambit",
+      "url": "https://norbertsgambit.net/"
+    },
+    {
+      "title": "TFSA Calculator",
+      "url": "https://pxmyh.github.io/tfsa_contribution_room_calculator/"
+    },
+    {
+      "title": "Top Reddit",
+      "url": "https://pxmyh.github.io/top_reddit/"
+    }
+  ]
+}
