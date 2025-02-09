@@ -43,6 +43,18 @@
     {
       "title": "Tryout",
       "url": "https://pxmyh.github.io/tryout/"
+    },
+    {
+      "title": "Cost of Living",
+      "url": "https://www.numbeo.com/cost-of-living/"
+    },
+    {
+      "title": "McCheapest",
+      "url": "https://pantryandlarder.com/mccheapest/"
+    },
+    {
+      "title": "LLM Inference Analyzer",
+      "url": "https://huguet57.github.io/LLM-analyzer/"
     }
   ]
 }
