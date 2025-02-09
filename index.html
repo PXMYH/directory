@@ -77,28 +77,62 @@
         }
       }
 
-      /* Ensure text remains readable in dark mode */
-      @media (prefers-color-scheme: light) {
-        :root {
-          --background-color: #0f172a;
-          --text-color: #e2e8f0;
-          --button-bg: #1e293b;
-          --button-border: #334155;
-        }
+      /* Loading state */
+      .loading {
+        color: var(--text-color);
+        text-align: center;
+        padding: 2rem;
+        font-size: 1.2rem;
+      }
+
+      /* Error state */
+      .error {
+        color: #ef4444;
+        text-align: center;
+        padding: 2rem;
+        font-size: 1.2rem;
       }
     </style>
   </head>
   <body>
-    <div class="tab-container">
-      <a href="https://pxmyh.github.io/noBS/" target="_blank" rel="noopener" class="tab">No BS News</a>
-      <a href="https://www.paulgraham.com/articles.html" target="_blank" rel="noopener" class="tab">PG's Essays</a>
-      <a href="https://pxmyh.github.io/show-hn/" target="_blank" rel="noopener" class="tab">Show HN</a>
-      <a href="https://pxmyh.github.io/gc-scraper/" target="_blank" rel="noopener" class="tab">Green Card</a>
-      <a href="https://droolingpanda.pythonanywhere.com/" target="_blank" rel="noopener" class="tab">Dumb Receipts</a>
-      <a href="https://bttb.io/" target="_blank" rel="noopener" class="tab">BttB</a>
-      <a href="https://norbertsgambit.net/" target="_blank" rel="noopener" class="tab">Norbert's Gambit</a>
-      <a href="https://pxmyh.github.io/tfsa_contribution_room_calculator/" target="_blank" rel="noopener" class="tab">TFSA Calculator</a>
-      <a href="https://pxmyh.github.io/top_reddit/" target="_blank" rel="noopener" class="tab">Top Reddit</a>
+    <div id="app">
+      <div class="loading">Loading...</div>
     </div>
+
+    <script>
+      async function loadButtons() {
+        try {
+          const response = await fetch('/config/buttons.json');
+          if (!response.ok) {
+            throw new Error('Failed to load button configuration');
+          }
+          
+          const data = await response.json();
+          const container = document.createElement('div');
+          container.className = 'tab-container';
+          
+          data.buttons.forEach(button => {
+            const link = document.createElement('a');
+            link.href = button.url;
+            link.target = '_blank';
+            link.rel = 'noopener';
+            link.className = 'tab';
+            link.textContent = button.title;
+            container.appendChild(link);
+          });
+          
+          const app = document.getElementById('app');
+          app.innerHTML = '';
+          app.appendChild(container);
+        } catch (error) {
+          console.error('Error loading buttons:', error);
+          const app = document.getElementById('app');
+          app.innerHTML = '<div class="error">Error loading buttons. Please try again later.</div>';
+        }
+      }
+
+      // Load buttons when the page loads
+      document.addEventListener('DOMContentLoaded', loadButtons);
+    </script>
   </body>
 </html>
