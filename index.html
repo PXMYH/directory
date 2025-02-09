@@ -102,7 +102,8 @@
     <script>
       async function loadButtons() {
         try {
-          const response = await fetch('/config/buttons.json');
+          console.log('Attempting to load buttons from: config/buttons.json');
+          const response = await fetch('config/buttons.json');
           if (!response.ok) {
             throw new Error('Failed to load button configuration');
           }
@@ -126,6 +127,7 @@
           app.appendChild(container);
         } catch (error) {
           console.error('Error loading buttons:', error);
+          console.error('Full error details:', error.message, error.stack);
           const app = document.getElementById('app');
           app.innerHTML = '<div class="error">Error loading buttons. Please try again later.</div>';
         }
