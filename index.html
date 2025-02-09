@@ -3,103 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Directory of useful links" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <link rel="manifest" href="manifest.json" />
-    <link
-      rel="apple-touch-icon"
-      href="https://cdn.jsdelivr.net/gh/PXMYH/directory@main/assets/img/yp_180x180.png"
-    />
-
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
     <title>Directory</title>
     <style>
-      /* Style for tabs */
+      :root {
+        --button-min-width: 180px;
+        --primary-color: #2563eb;
+        --hover-color: #1d4ed8;
+        --background-color: #f8fafc;
+      }
+
+      body {
+        margin: 0;
+        padding: 20px;
+        background-color: var(--background-color);
+        font-family: "Chalkboard SE", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
       .tab-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--button-min-width), 1fr));
+        gap: 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
       }
 
       .tab {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: var(--button-min-width);
+        padding: 1rem;
+        background-color: white;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+        border-radius: 8px;
         cursor: pointer;
-        padding: 10px 20px;
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        margin: 5px;
+        font-size: 1rem;
+        text-align: center;
+        transition: all 0.2s ease-in-out;
+        text-decoration: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
-      /* Style for active tab */
-      .active-tab {
-        background-color: #fff;
-        border: 1px solid #ccc;
+      .tab:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
-      /* Ensure only three tabs per row */
-      .tab:nth-child(3n + 1) {
-        margin-left: 0;
-      }
-
-      /* Content container */
-      .content-container {
-        border: 1px solid #ccc;
-        padding: 20px;
-        border-radius: 5px;
-        margin-top: 10px;
+      @media (max-width: 768px) {
+        :root {
+          --button-min-width: 140px;
+        }
+        
+        .tab-container {
+          padding: 0.5rem;
+        }
+        
+        .tab {
+          padding: 0.75rem;
+          font-size: 0.9rem;
+        }
       }
     </style>
   </head>
-
   <body>
     <div class="tab-container">
-      <div
-        class="tab"
-        onclick="openLinkNewWindow('https://pxmyh.github.io/noBS/')"
-      >
-        No BS News
-      </div>
-      <div
-        class="tab"
-        onclick="openLinkNewWindow('https://www.paulgraham.com/articles.html/')"
-      >
-        PG's Essays
-      </div>
-      <div
-        class="tab"
-        onclick="openLinkNewWindow('https://pxmyh.github.io/show-hn/')"
-      >
-        Show HN
-      </div>
-      <div
-        class="tab"
-        onclick="openLinkNewWindow('https://pxmyh.github.io/gc-scraper/')"
-      >
-        Green Card
-      </div>
-      <div
-        class="tab"
-        onclick="openLinkNewWindow('https://droolingpanda.pythonanywhere.com/')"
-      >
-        Dumb Receipts
-      </div>
-      <div class="tab" onclick="openLinkNewWindow('https://bttb.io/')">
-        BttB
-      </div>
-      <div class="tab" onclick="openLinkNewWindow('https://norbertsgambit.net/')">
-        Norbert's Gambit
-      </div>
-      <div class="tab" onclick="openLinkNewWindow('https://pxmyh.github.io/tfsa_contribution_room_calculator/')">
-        TFSA Calculator
-      </div>
-      <div class="tab" onclick="openLinkNewWindow('https://pxmyh.github.io/top_reddit/')">
-        Top Reddit
-      </div>
+      <a href="https://pxmyh.github.io/noBS/" target="_blank" rel="noopener" class="tab">No BS News</a>
+      <a href="https://www.paulgraham.com/articles.html" target="_blank" rel="noopener" class="tab">PG's Essays</a>
+      <a href="https://pxmyh.github.io/show-hn/" target="_blank" rel="noopener" class="tab">Show HN</a>
+      <a href="https://pxmyh.github.io/gc-scraper/" target="_blank" rel="noopener" class="tab">Green Card</a>
+      <a href="https://droolingpanda.pythonanywhere.com/" target="_blank" rel="noopener" class="tab">Dumb Receipts</a>
+      <a href="https://bttb.io/" target="_blank" rel="noopener" class="tab">BttB</a>
+      <a href="https://norbertsgambit.net/" target="_blank" rel="noopener" class="tab">Norbert's Gambit</a>
+      <a href="https://pxmyh.github.io/tfsa_contribution_room_calculator/" target="_blank" rel="noopener" class="tab">TFSA Calculator</a>
+      <a href="https://pxmyh.github.io/top_reddit/" target="_blank" rel="noopener" class="tab">Top Reddit</a>
     </div>
-
-    <script>
-      function openLinkNewWindow(link) {
-        // Open the link in a new window/tab
-        window.open(link, '_blank');
-      }
-    </script>
   </body>
 </html>
