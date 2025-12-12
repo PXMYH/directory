@@ -1,6 +1,10 @@
 {
   "buttons": [
     {
+      "title": "Reddit Digest",
+      "url": "https://pxmyh.github.io/reddit-digest/"
+    },
+    {
       "title": "No BS News",
       "url": "https://pxmyh.github.io/noBS/"
     },
