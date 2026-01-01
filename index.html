@@ -77,22 +77,28 @@
     </style>
   </head>
   <body>
-    <div class="tab-container">
-      <a href="https://pxmyh.github.io/reddit-digest/" target="_blank" rel="noopener" class="tab">Reddit Digest</a>
-      <a href="https://pxmyh.github.io/noBS/" target="_blank" rel="noopener" class="tab">No BS News</a>
-      <a href="https://www.newsminimalist.com/" target="_blank" rel="noopener" class="tab">Minimalist News</a>
-      <a href="https://pxmyh.github.io/luckyWheel/" target="_blank" rel="noopener" class="tab">Spin Wheel</a>
-      <a href="https://www.paulgraham.com/articles.html" target="_blank" rel="noopener" class="tab">PG's Essays</a>
-      <a href="https://pxmyh.github.io/show-hn/" target="_blank" rel="noopener" class="tab">Show HN</a>
-      <a href="https://pxmyh.github.io/gc-scraper/" target="_blank" rel="noopener" class="tab">Green Card</a>
-      <a href="https://droolingpanda.pythonanywhere.com/" target="_blank" rel="noopener" class="tab">Dumb Receipts</a>
-      <a href="https://bttb.io/" target="_blank" rel="noopener" class="tab">BttB</a>
-      <a href="https://norbertsgambit.net/" target="_blank" rel="noopener" class="tab">Norbert's Gambit</a>
-      <a href="https://pxmyh.github.io/tfsa_contribution_room_calculator/" target="_blank" rel="noopener" class="tab">TFSA Calculator</a>
-      <a href="https://stretchmytimeoff.com/" target="_blank" rel="noopener" class="tab">Stretch Timeoff</a>
-      <a href="https://www.numbeo.com/cost-of-living/" target="_blank" rel="noopener" class="tab">Cost of Living</a>
-      <a href="https://pantryandlarder.com/mccheapest/" target="_blank" rel="noopener" class="tab">McCheapest</a>
-      <a href="https://huguet57.github.io/LLM-analyzer/" target="_blank" rel="noopener" class="tab">LLM Inference Analyzer</a>
-    </div>
+    <div class="tab-container" id="buttons"></div>
+    <script>
+      const buttons = [
+        ["Reddit Digest", "https://pxmyh.github.io/reddit-digest/"],
+        ["No BS News", "https://pxmyh.github.io/noBS/"],
+        ["Minimalist News", "https://www.newsminimalist.com/"],
+        ["Spin Wheel", "https://pxmyh.github.io/luckyWheel/"],
+        ["PG's Essays", "https://www.paulgraham.com/articles.html"],
+        ["Show HN", "https://pxmyh.github.io/show-hn/"],
+        ["Green Card", "https://pxmyh.github.io/gc-scraper/"],
+        ["Dumb Receipts", "https://droolingpanda.pythonanywhere.com/"],
+        ["BttB", "https://bttb.io/"],
+        ["Norbert's Gambit", "https://norbertsgambit.net/"],
+        ["TFSA Calculator", "https://pxmyh.github.io/tfsa_contribution_room_calculator/"],
+        ["Stretch Timeoff", "https://stretchmytimeoff.com/"],
+        ["Cost of Living", "https://www.numbeo.com/cost-of-living/"],
+        ["McCheapest", "https://pantryandlarder.com/mccheapest/"],
+        ["LLM Inference Analyzer", "https://huguet57.github.io/LLM-analyzer/"],
+      ];
+      document.getElementById("buttons").innerHTML = buttons
+        .map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener" class="tab">${t}</a>`)
+        .join("");
+    </script>
   </body>
 </html>
