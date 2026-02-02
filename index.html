@@ -60,6 +60,58 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       }
 
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      .dropdown-btn::after {
+        content: "▼";
+        font-size: 0.7rem;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        margin-top: 4px;
+        background-color: var(--button-bg);
+        border: 2px solid var(--button-border);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+        z-index: 100;
+        overflow: hidden;
+      }
+
+      .dropdown-content.show {
+        display: block;
+      }
+
+      .dropdown-item {
+        display: block;
+        padding: 0.75rem 1rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: background-color 0.2s;
+        border-bottom: 1px solid var(--button-border);
+      }
+
+      .dropdown-item:last-child {
+        border-bottom: none;
+      }
+
+      .dropdown-item:hover {
+        background-color: var(--hover-color);
+      }
+
       @media (max-width: 768px) {
         :root {
           --button-min-width: 140px;
@@ -97,9 +149,55 @@
         ["Awesome Claude", "https://pxmyh.github.io/Awesome-Claude/"],
         ["40 News", "https://forty.news/"]
       ];
-      document.getElementById("buttons").innerHTML = buttons
-        .map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener" class="tab">${t}</a>`)
-        .join("");
+
+      const dropdowns = [
+        {
+          label: "DevBlogs",
+          items: [
+            ["Sam Rose", "https://samwho.dev/"],
+            ["Infrequently Noted", "https://infrequently.org/"],
+            ["Brandur", "https://brandur.org/"],
+            ["Practical Engineering", "https://practical.engineering/"],
+            ["Marc Brooker", "https://brooker.co.za/blog/"],
+            ["Making Software", "https://www.makingsoftware.com/"]
+          ]
+        }
+      ];
+
+      function renderButton([t, u]) {
+        return `<a href="${u}" target="_blank" rel="noopener" class="tab">${t}</a>`;
+      }
+
+      function renderDropdown({ label, items }) {
+        const itemsHtml = items
+          .map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener" class="dropdown-item">${t}</a>`)
+          .join("");
+        return `
+          <div class="dropdown">
+            <button class="tab dropdown-btn">${label}</button>
+            <div class="dropdown-content">${itemsHtml}</div>
+          </div>
+        `;
+      }
+
+      document.getElementById("buttons").innerHTML =
+        buttons.map(renderButton).join("") +
+        dropdowns.map(renderDropdown).join("");
+
+      document.querySelectorAll(".dropdown-btn").forEach(btn => {
+        btn.addEventListener("click", e => {
+          e.stopPropagation();
+          const content = btn.nextElementSibling;
+          document.querySelectorAll(".dropdown-content").forEach(d => {
+            if (d !== content) d.classList.remove("show");
+          });
+          content.classList.toggle("show");
+        });
+      });
+
+      document.addEventListener("click", () => {
+        document.querySelectorAll(".dropdown-content").forEach(d => d.classList.remove("show"));
+      });
     </script>
   </body>
 </html>
